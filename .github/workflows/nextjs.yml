@@ -1,20 +1,14 @@
 module.exports = {
-  basePath: '/docs',
- 
-  async redirects() {
+  async rewrites() {
     return [
       {
-        source: '/with-basePath', // automatically becomes /docs/with-basePath
-        destination: '/another', // automatically becomes /docs/another
-        permanent: false,
+        source: '/blog/:slug',
+        destination: '/posts/:slug',
       },
       {
-        // does not add /docs since basePath: false is set
-        source: '/without-basePath',
-        destination: 'https://google.com',
-        basePath: false,
-        permanent: false,
+        source: '/google',
+        destination: 'https://www.google.com',
       },
-    ]
+    ];
   },
-}
+};
